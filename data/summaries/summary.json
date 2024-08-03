@@ -1,0 +1,42 @@
+[
+    {
+        "master_image": "ip_img1.png",
+        "objects": [
+            {
+                "unique_id": "6e84eea9-69f9-4199-9fd4-6a7b44f1e964",
+                "label": "cup",
+                "description": "a white mug sitting on top of a table",
+                "ocr_text": "No text detected"
+            },
+            {
+                "unique_id": "f2639711-f209-4372-bef4-ea03fc30b8fb",
+                "label": "laptop",
+                "description": "a laptop computer sitting on a desk next to a cup of coffee",
+                "ocr_text": "No text detected"
+            },
+            {
+                "unique_id": "7b437696-6264-4eea-8b8c-3107e144e2ac",
+                "label": "bottle",
+                "description": "a black bottle with a silver lid on a wooden table",
+                "ocr_text": "0"
+            },
+            {
+                "unique_id": "16e9b509-12b0-458e-b1ae-89281eacf3d7",
+                "label": "mouse",
+                "description": "a painting of a spaceship with a rocket in the background",
+                "ocr_text": "No text detected"
+            }
+        ]
+    },
+    {
+        "master_image": "Test4.jpg",
+        "objects": [
+            {
+                "unique_id": "cf65ab11-43f5-4632-9422-664c11756da3",
+                "label": "laptop",
+                "description": "dell laptop with dell logo on the screen",
+                "ocr_text": "9 Dr (CDR) 5 S DAAL INTE The Comp 3"
+            }
+        ]
+    }
+]
