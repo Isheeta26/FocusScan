@@ -22,7 +22,7 @@ output_dir = 'bounded_images'
 summary_dir = 'summaries'
 ensure_directories_exist(output_dir, summary_dir)
 
-st.title("Object Detection and Annotation App")
+st.title("FocusScan : From Detection to Insight")
 
 # File Upload
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])

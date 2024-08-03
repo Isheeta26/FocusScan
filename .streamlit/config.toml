@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#FF6347"                # Tomato (bright red-orange)
+backgroundColor = "#1E1E1E"             # Dark Grey
+secondaryBackgroundColor = "#282C34"    # Slightly lighter dark grey
+textColor = "#FFFFFF"                   # White
+font = "sans serif"                     # Sans serif font family

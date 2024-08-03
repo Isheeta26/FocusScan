@@ -1,14 +1,14 @@
 [
     {
-        "Unique ID": "b32f464e-3ae9-44bb-a12a-f06f41ad1ebc",
-        "Label": "bottle",
-        "Description": "a bottle of fruit juice sitting on top of a table",
-        "OCR Text": "ga Vontc FUL ye1e"
+        "Unique ID": "a8eb785a-0389-4c1a-8a61-f74aa6a2cb8f",
+        "Label": "teddy bear",
+        "Description": "a yellow teddy bear",
+        "OCR Text": "No text detected"
     },
     {
-        "Unique ID": "b028ced6-0414-4407-94f5-5f5d9ef2fa6d",
-        "Label": "cup",
-        "Description": "a white mug on a black table",
+        "Unique ID": "993c04c9-2a88-4bd5-b5cf-c190d2be9a5b",
+        "Label": "person",
+        "Description": "a person holding a yellow teddy bear",
         "OCR Text": "No text detected"
     }
 ]
