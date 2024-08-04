@@ -39,3 +39,8 @@ This Streamlit application allows users to upload images for object detection, s
  3. **View results:**
 
     The app will display segmented objects, object details, and the final output image with annotations.
+
+**Live Application**
+ Explore the live version of the Object Detection and Annotation App here.
+
+
