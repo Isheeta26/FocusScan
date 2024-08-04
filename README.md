@@ -40,7 +40,8 @@ This Streamlit application allows users to upload images for object detection, s
 
     The app will display segmented objects, object details, and the final output image with annotations.
 
-**Live Application**
- Explore the live version of the Object Detection and Annotation App here.
+## Live Application & Deployment
+Explore the live version of FocusScan [here](https://isheeta-sharma-wasserstoff-aiinterntask.onrender.com).
+
 
 
