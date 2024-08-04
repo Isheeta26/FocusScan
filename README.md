@@ -40,8 +40,5 @@ FocusScan is a Streamlit application designed for object detection, segmentation
 
     The app will display segmented objects, object details, and the final output image with annotations.
 
-## Live Application & Deployment
-Explore the live version of FocusScan [here](https://isheeta-sharma-wasserstoff-aiinterntask.onrender.com).
-
 
 
