@@ -1,29 +1,29 @@
-# Object Detection and Annotation App
+# FocusScan
 
-This Streamlit application allows users to upload images for object detection, segmentation, and annotation. It leverages YOLO for object detection, BLIP for image captioning, and EasyOCR for text extraction.
+FocusScan is a Streamlit application designed for object detection, segmentation, and annotation. Leveraging YOLO for object detection, BLIP for image captioning, and EasyOCR for text extraction, FocusScan provides a comprehensive solution for image analysis.
 
 ## Features
 
 - **File Upload:**
-  - Users can upload an input image.
+  - Allows users to upload an input image for processing.
 - **Segmentation Display:**
-  - Display the segmented objects on the original image.
+  - Visualizes segmented objects on the original image.
 - **Object Details:**
-  - Show extracted object images with unique IDs.
-  - Display descriptions, extracted text/data, and summarized attributes for each object.
+  - Displays extracted object images with unique IDs.
+  - Provides descriptions, extracted text/data, and summarized attributes for each object.
 - **Final Output:**
-  - Display the final output image with annotations.
-  - Present a table containing all mapped data for each object in the master image.
+  - Shows the annotated image with all detected objects.
+  - Presents a table with mapped data for each object in the master image.
 - **User Interaction:**
-  - Allow users to interact with and review each step of the pipeline.
+  - Enables interaction with and review of each step in the analysis pipeline.
 
 ## Installation
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/object-detection-annotation-app.git
-   cd object-detection-annotation-app
+   git clone https://github.com/your-username/focusscan.git
+   cd focusscan
 
 ## Usage
 
