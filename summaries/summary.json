@@ -1,14 +1,20 @@
 [
     {
-        "Unique ID": "a8eb785a-0389-4c1a-8a61-f74aa6a2cb8f",
-        "Label": "teddy bear",
-        "Description": "a yellow teddy bear",
-        "OCR Text": "No text detected"
+        "Unique ID": "c97784ac-9f35-4943-9046-8e7f815f44ac",
+        "Label": "cup",
+        "OCR Text": "LIfe A Ride  MAKE",
+        "Description": "a coffee mug sitting on top of a table"
     },
     {
-        "Unique ID": "993c04c9-2a88-4bd5-b5cf-c190d2be9a5b",
-        "Label": "person",
-        "Description": "a person holding a yellow teddy bear",
-        "OCR Text": "No text detected"
+        "Unique ID": "d9399863-dec9-45b6-867b-aad7e3dd4df8",
+        "Label": "laptop",
+        "OCR Text": "No text detected",
+        "Description": "a laptop with a pen and a cup on it"
+    },
+    {
+        "Unique ID": "088c58ef-0e58-4885-b7ad-438ea4dccf8f",
+        "Label": "book",
+        "OCR Text": "Travel lanet",
+        "Description": "a notebook with a pink cover and a pink background"
     }
 ]
