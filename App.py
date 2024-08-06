@@ -10,18 +10,18 @@ from model.blip_model import load_blip_model, generate_summary
 from model.text_ext_model_2 import extract_text
 from tables.models.image_processing import ensure_directories_exist, draw_bounding_boxes, save_bounding_box_image
 
-# Load models
+# Here we are loading the required model
 yolo_model = load_yolo_model()
 blip_processor, blip_model = load_blip_model()
 
-# Ensure directories exist
+# Checking the directories
 output_dir = 'bounded_images'
 summary_dir = 'summaries'
 ensure_directories_exist(output_dir, summary_dir)
 
 st.title("FocusScan : From Detection to Insights")
 
-# File Upload
+
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     # Load image
@@ -29,10 +29,10 @@ if uploaded_file is not None:
     image_path = os.path.join(output_dir, uploaded_file.name)
     image.save(image_path)
 
-    # Convert PIL image to OpenCV format
+    # Converting PIL image to OpenCV format
     img = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
-    # Run YOLO inference
+    # Running YOLO inference
     results = run_yolo_inference(yolo_model, image_path)
 
     boxes = []
@@ -44,16 +44,16 @@ if uploaded_file is not None:
         confidences.extend(result.boxes.conf.cpu().numpy())
         labels.extend(result.boxes.cls.cpu().numpy())
 
-    # Draw bounding boxes and save ROI images
+    # Creating bounding boxes and saving the ROI images
     unique_ids = draw_bounding_boxes(img, boxes, confidences, labels, yolo_model.names)
     for obj_idx, box in enumerate(boxes):
         save_bounding_box_image(img, box, output_dir, unique_ids[obj_idx])
 
-    # Convert OpenCV image back to PIL format for display
+    # Converting the OpenCV image back to PIL format for display
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     annotated_image = Image.fromarray(img_rgb)
 
-    # Display the uploaded image and the segmented objects side by side
+    # Displaying the uploaded image and the segmented objects side by side
     col1, col2 = st.columns(2)
 
     with col1:
@@ -62,14 +62,14 @@ if uploaded_file is not None:
     with col2:
         st.image(annotated_image, caption='Annotated Image', width=350)
 
-    # Display detected objects with their label names
+    # Displaying the detected objects with their label names
     st.subheader("Detected Objects")
 
-    # Define desired size for cropped images
+    # Defining  desired size for cropped images
     desired_width = 150
     desired_height = 150
 
-    # Calculate the number of columns for the grid layout
+    # Here we are  calculating the number of columns for the grid layout
     num_columns = min(3, len(boxes))  # Maximum 3 columns or fewer if fewer boxes
     rows = (len(boxes) + num_columns - 1) // num_columns  # Calculate number of rows
 
@@ -80,17 +80,15 @@ if uploaded_file is not None:
             if idx < len(unique_ids):
                 with cols[col]:
                     object_image_path = os.path.join(output_dir, f'bbox_{unique_ids[idx]}.jpg')
-                    # Resize image to desired size
                     object_image = Image.open(object_image_path)
                     object_image_resized = object_image.resize((desired_width, desired_height))
-                    # Display resized image
                     st.image(object_image_resized, caption=f'Label: {yolo_model.names[int(labels[idx])]}', width=desired_width)
 
-    # Generate summaries and extract OCR text
+    # Generating summaries and extracting the OCR detected text
     summaries = generate_summary(blip_processor, blip_model, image_path, boxes, unique_ids)
     ocr_texts = extract_text(image_path, boxes)
 
-    # Create and display object details
+    # Creating and displaying object details
     object_details = []
     for idx, (unique_id, description) in enumerate(summaries):
         ocr_text = ocr_texts[idx] if idx < len(ocr_texts) else "No text detected"
@@ -102,11 +100,11 @@ if uploaded_file is not None:
         }
         object_details.append(object_detail)
 
-    # Display table containing all mapped data for each object in the master image
+    # Displaying the table containing all mapped data for each object in the master image
     st.subheader("Table")
     st.write(pd.DataFrame(object_details))
 
-    # Save all summaries to JSON file
+    # Saving the summaries to JSON file
     json_summary_file = os.path.join(summary_dir, 'summary.json')
     with open(json_summary_file, 'w') as json_file:
         json.dump(object_details, json_file, indent=4)

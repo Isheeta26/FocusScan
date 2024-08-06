@@ -1,20 +1,32 @@
 [
     {
-        "Unique ID": "c97784ac-9f35-4943-9046-8e7f815f44ac",
+        "Unique ID": "6d31628e-9c0e-450b-833e-0017086d8b22",
         "Label": "cup",
-        "OCR Text": "LIfe A Ride  MAKE",
-        "Description": "a coffee mug sitting on top of a table"
+        "OCR Text": "Motors",
+        "Description": "a white mug with a black handle"
     },
     {
-        "Unique ID": "d9399863-dec9-45b6-867b-aad7e3dd4df8",
+        "Unique ID": "7bf92831-fd11-43e9-b11d-33737d30a23b",
         "Label": "laptop",
         "OCR Text": "No text detected",
-        "Description": "a laptop with a pen and a cup on it"
+        "Description": "a laptop with a keyboard and a mouse"
     },
     {
-        "Unique ID": "088c58ef-0e58-4885-b7ad-438ea4dccf8f",
+        "Unique ID": "e065a8bd-3852-48a9-9b46-68421bd5283c",
+        "Label": "potted plant",
+        "OCR Text": "No text detected",
+        "Description": "a small pot filled with yellow flowers"
+    },
+    {
+        "Unique ID": "09cfb9a6-2d45-43ea-8f0f-bc771e83cda4",
         "Label": "book",
-        "OCR Text": "Travel lanet",
-        "Description": "a notebook with a pink cover and a pink background"
+        "OCR Text": "planet Travel",
+        "Description": "a notebook with a pink cover and a pink pen"
+    },
+    {
+        "Unique ID": "134de3c7-55dc-48df-bd0a-3256c8239849",
+        "Label": "keyboard",
+        "OCR Text": "No text detected",
+        "Description": "a laptop computer sitting on top of a wooden table"
     }
 ]

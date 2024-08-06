@@ -14,24 +14,24 @@ output_dir = r'C:\Users\Isheeta\NLP_ProjectS\object_detection\data\bounded_image
 summary_dir = r'C:\Users\Isheeta\NLP_ProjectS\object_detection\data\summaries'
 json_summary_file = os.path.join(summary_dir, 'summary.json')  # Define the JSON summary file path
 
-# Ensure directories exist
+# Ensuring that the directories exist
 ensure_directories_exist(output_dir, summary_dir)
 
 # Load models
 yolo_model = load_yolo_model()
 blip_processor, blip_model = load_blip_model()
 
-# Collect all summaries
+# Collecting all summaries
 all_summaries = []
 
-# Process each image
+# Processing each image
 for image_idx, image_name in enumerate(os.listdir(input_images_dir)):
     image_path = os.path.join(input_images_dir, image_name)
 
-    # Run inference with YOLOv8
+    # Running inference with YOLOv8
     results = run_yolo_inference(yolo_model, image_path)
 
-    # Load the image
+    # Loading the image
     img = cv2.imread(image_path)
 
     boxes = []
@@ -43,24 +43,24 @@ for image_idx, image_name in enumerate(os.listdir(input_images_dir)):
         confidences.extend(result.boxes.conf.cpu().numpy())
         labels.extend(result.boxes.cls.cpu().numpy())
 
-    # Draw bounding boxes and save ROI images
+    # Creating bounding boxes and saving detected images
     unique_ids = draw_bounding_boxes(img, boxes, confidences, labels, yolo_model.names)
     for obj_idx, box in enumerate(boxes):
         save_bounding_box_image(img, box, output_dir, unique_ids[obj_idx])
 
-    # Generate summaries
+    # Generating summaries
     summaries = generate_summary(blip_processor, blip_model, image_path, boxes, unique_ids)
 
-    # Extract OCR text
+    # Extracting OCR text
     ocr_texts = extract_text(image_path, boxes)
 
-    # Prepare JSON structure for this image
+    # Preparing JSON structure for this image
     image_summary = {
         "master_image": image_name,
         "objects": []
     }
 
-    # Add objects' details to the JSON structure
+    # Adding objects' details to the JSON structure
     for idx, (unique_id, description) in enumerate(summaries):
         ocr_text = ocr_texts[idx] if idx < len(ocr_texts) else "No text detected"
         image_summary["objects"].append({
@@ -70,19 +70,19 @@ for image_idx, image_name in enumerate(os.listdir(input_images_dir)):
             "ocr_text": ocr_text
         })
 
-    # Append image summary to the list
+    # Appending image summary to the list
     all_summaries.append(image_summary)
 
-    # Convert BGR to RGB for matplotlib and display
+    # Converting BGR to RGB for matplotlib and display
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     plt.imshow(img_rgb)
     plt.title(f"Detected Objects in {image_name}")
     plt.axis('off')
     plt.show()
 
-# Write all summaries to JSON file
+# Writing all summaries to JSON file
 with open(json_summary_file, 'w') as json_file:
     json.dump(all_summaries, json_file, indent=4)
 
-# Delete the bounded_images directory
+# Deleting the bounded_images directory
 shutil.rmtree(output_dir)
